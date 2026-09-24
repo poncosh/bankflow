@@ -4,9 +4,13 @@ spring:
   application:
     name: service-registry
 eureka:
+  instance:
+    hostname: ${EUREKA_INSTANCE_HOSTNAME:service-registry}
   client:
     register-with-eureka: false
     fetch-registry: false
+    service-url:
+      defaultZone: http://${EUREKA_REPLICA_HOSTNAME:localhost}:${server.port}/eureka/
 management:
   endpoints:
     web:

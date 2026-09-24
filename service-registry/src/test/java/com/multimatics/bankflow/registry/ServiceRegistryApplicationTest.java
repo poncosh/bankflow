@@ -30,6 +30,11 @@ class ServiceRegistryApplicationTest {
                 .isFalse();
         assertThat(environment.getProperty("eureka.client.fetch-registry", Boolean.class))
                 .isFalse();
+        assertThat(environment.getProperty("eureka.instance.hostname"))
+                .isEqualTo("service-registry");
+        assertThat(environment.getProperty("eureka.client.service-url.defaultZone"))
+                .startsWith("http://localhost:")
+                .endsWith("/eureka/");
     }
 
     @Test
@@ -44,5 +49,21 @@ class ServiceRegistryApplicationTest {
 
         assertThat(response.statusCode()).isEqualTo(200);
         assertThat(response.body()).contains("\"status\":\"UP\"");
+    }
+
+    @Test
+    void exposesConfiguredDomainInDsReplicas() throws Exception {
+        HttpRequest request = HttpRequest.newBuilder()
+                .uri(URI.create("http://localhost:" + port + "/"))
+                .GET()
+                .build();
+
+        HttpResponse<String> response = HttpClient.newHttpClient()
+                .send(request, HttpResponse.BodyHandlers.ofString());
+
+        assertThat(response.statusCode()).isEqualTo(200);
+        assertThat(response.body())
+                .contains("<h1>DS Replicas</h1>")
+                .contains(">localhost</a>");
     }
 }

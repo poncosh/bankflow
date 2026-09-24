@@ -78,6 +78,8 @@ Konfigurasi yang dapat dioverride melalui environment variable:
 | Variable | Default | Kegunaan |
 | --- | --- | --- |
 | `EUREKA_SERVER_URL` | `http://localhost:8761/eureka/` | Lokasi Eureka server |
+| `EUREKA_INSTANCE_HOSTNAME` | `service-registry` | Identitas node Eureka Server |
+| `EUREKA_REPLICA_HOSTNAME` | `localhost` | Domain yang ditampilkan pada DS Replicas |
 | `ACCOUNT_CONNECT_TIMEOUT` | `2s` | Timeout koneksi ke Account Service |
 | `ACCOUNT_READ_TIMEOUT` | `3s` | Timeout membaca respons Account Service |
 | `ACCOUNT_CLIENT_DELAY_MS` | `0` | Delay sintetis khusus pengujian resilience |

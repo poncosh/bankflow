@@ -42,6 +42,13 @@ management:
       show-details: always
     gateway:
       access: read-only
+bankflow:
+  gateway:
+    transfer-rate-limit:
+      name: transferApi
+      path: /api/transfers
+      error-code: RATE_LIMIT_EXCEEDED
+      message: Transfer request rate limit exceeded
 resilience4j:
   ratelimiter:
     instances:

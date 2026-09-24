@@ -1,5 +1,6 @@
 package com.multimatics.bankflow.gateway;
 
+import com.multimatics.bankflow.gateway.config.TransferRateLimitProperties;
 import io.github.resilience4j.ratelimiter.RateLimiterRegistry;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,11 +25,15 @@ class ApiGatewayApplicationTest {
     @Autowired
     private RateLimiterRegistry rateLimiterRegistry;
 
+    @Autowired
+    private TransferRateLimitProperties transferRateLimitProperties;
+
     @Test
     void configuresTransferApiRateLimiter() {
         assertNotNull(transferRateLimitFilter);
         var rateLimiter = rateLimiterRegistry.rateLimiter(
-                TransferRateLimitFilter.RATE_LIMITER_NAME);
+                transferRateLimitProperties.name());
+        assertEquals("transferApi", transferRateLimitProperties.name());
         assertEquals(5, rateLimiter.getRateLimiterConfig().getLimitForPeriod());
         assertEquals(0, rateLimiter.getRateLimiterConfig().getTimeoutDuration().toMillis());
     }

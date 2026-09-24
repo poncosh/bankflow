@@ -1,0 +1,15 @@
+Scenario: Healthy Transfer route through API Gateway
+Request: POST http://localhost:8080/api/transfers
+HTTP status: 201
+
+{
+  "sourceAccount": "********8001",
+  "destinationAccount": "********8001",
+  "amount": 12500.00,
+  "currency": "IDR",
+  "clientReference": "SYNTH-CH08-BASELINE-001",
+  "status": "COMPLETED"
+}
+
+Follow-up: GET http://localhost:8080/api/transfers returned HTTP 200 and the same
+masked synthetic transfer.

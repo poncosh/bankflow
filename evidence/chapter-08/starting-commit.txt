@@ -1,0 +1,4 @@
+UNAVAILABLE
+
+The supplied chapter-08 directory is not a Git working tree (`.git` is absent), so a
+starting commit hash cannot be recorded without fabricating evidence.

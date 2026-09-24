@@ -1,0 +1,20 @@
+{
+  "circuitBreakerName": "accountService",
+  "events": [
+    {
+      "creationTime": "2026-09-24T11:03:26.381363700+07:00[Asia/Jakarta]",
+      "stateTransition": "State transition from CLOSED to OPEN",
+      "type": "STATE_TRANSITION"
+    },
+    {
+      "creationTime": "2026-09-24T11:03:36.397949600+07:00[Asia/Jakarta]",
+      "stateTransition": "State transition from OPEN to HALF_OPEN",
+      "type": "STATE_TRANSITION"
+    },
+    {
+      "creationTime": "2026-09-24T11:03:51.445332200+07:00[Asia/Jakarta]",
+      "stateTransition": "State transition from HALF_OPEN to CLOSED",
+      "type": "STATE_TRANSITION"
+    }
+  ]
+}

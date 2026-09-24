@@ -1,0 +1,13 @@
+Scenario: Six GET /api/transfers requests in one 10-second period
+Configured limiter: transferApi
+Limit: 5 requests per 10 seconds
+
+Request 1: 200
+Request 2: 200
+Request 3: 200
+Request 4: 200
+Request 5: 200
+Request 6: 429
+Retry-After: 10
+
+Actuator registry response: {"rateLimiters":["transferApi"]}

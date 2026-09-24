@@ -1,0 +1,18 @@
+{
+  "info": {"name": "BankFlow Chapter 8 - Resilience and Fault Tolerance", "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"},
+  "variable": [
+    {"key":"gateway","value":"http://localhost:8080"},
+    {"key":"account","value":"http://localhost:8081"},
+    {"key":"transfer","value":"http://localhost:8082"}
+  ],
+  "item": [
+    {"name":"Reset faults","request":{"method":"DELETE","header":[],"url":"{{account}}/internal/lab/faults"}},
+    {"name":"Normal transfer","request":{"method":"GET","header":[{"key":"X-Correlation-ID","value":"LAB-CH08-01"}],"url":"{{gateway}}/api/transfers/TRF-1001"}},
+    {"name":"Always fail 503","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"mode\":\"ALWAYS_FAIL\",\"count\":0,\"status\":503,\"delayMs\":0}"},"url":"{{account}}/internal/lab/faults"}},
+    {"name":"Fail next once","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"mode\":\"FAIL_NEXT\",\"count\":1,\"status\":503,\"delayMs\":0}"},"url":"{{account}}/internal/lab/faults"}},
+    {"name":"Delay 1500 ms","request":{"method":"POST","header":[{"key":"Content-Type","value":"application/json"}],"body":{"mode":"raw","raw":"{\"mode\":\"DELAY\",\"count\":0,\"status\":503,\"delayMs\":1500}"},"url":"{{account}}/internal/lab/faults"}},
+    {"name":"Fault state","request":{"method":"GET","header":[],"url":"{{account}}/internal/lab/faults"}},
+    {"name":"Breaker state","request":{"method":"GET","header":[],"url":"{{transfer}}/actuator/circuitbreakers"}},
+    {"name":"Retry metrics","request":{"method":"GET","header":[],"url":"{{transfer}}/actuator/metrics/resilience4j.retry.calls"}}
+  ]
+}

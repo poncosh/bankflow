@@ -1,0 +1,8 @@
+Scenario: Account lookup read timeout with retry
+Controlled settings: read timeout 500 ms; synthetic downstream delay 1200 ms
+HTTP status: 503
+Elapsed: 2428 ms
+Dependency attempts: 3
+
+The response is an explicit dependency failure. It does not claim that a transfer was
+created or completed.

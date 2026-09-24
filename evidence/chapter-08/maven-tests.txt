@@ -1,0 +1,10 @@
+Captured: 2026-09-24 Asia/Jakarta
+
+account-service:       BUILD SUCCESS; tests 2; failures 0; errors 0; skipped 0
+api-gateway:           BUILD SUCCESS; tests 3; failures 0; errors 0; skipped 0
+notification-service: BUILD SUCCESS; tests 5; failures 0; errors 0; skipped 0
+service-registry:      BUILD SUCCESS; tests 2; failures 0; errors 0; skipped 0
+transfer-service:      BUILD SUCCESS; tests 4; failures 0; errors 0; skipped 0
+
+TOTAL: 16 tests; 0 failures; 0 errors; 0 skipped
+Command run in each module: mvn test

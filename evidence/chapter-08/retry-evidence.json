@@ -1,0 +1,17 @@
+{
+  "retryName": "accountService",
+  "transientFailure": {
+    "scenario": "one synthetic 503 followed by success",
+    "sourceLookupCalls": 2,
+    "destinationLookupCalls": 1,
+    "httpStatus": 201,
+    "transferStatus": "COMPLETED",
+    "clientReference": "SYNTH-RETRY-ONE-TRANSIENT"
+  },
+  "permanentOutcome": {
+    "scenario": "synthetic source account not found",
+    "sourceLookupCalls": 1,
+    "httpStatus": 422,
+    "code": "SOURCE_ACCOUNT_NOT_FOUND"
+  }
+}

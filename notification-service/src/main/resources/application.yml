@@ -1,0 +1,40 @@
+server:
+  port: 8083
+spring:
+  application:
+    name: notification-service
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: bankflow-notification-service
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        "[spring.deserializer.value.delegate.class]": org.springframework.kafka.support.serializer.JacksonJsonDeserializer
+        "[spring.json.value.default.type]": com.multimatics.bankflow.notification.messaging.TransferCompletedEvent
+        "[spring.json.trusted.packages]": com.multimatics.bankflow.notification.messaging
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JacksonJsonSerializer
+      properties:
+        "[spring.json.add.type.headers]": false
+bankflow:
+  kafka:
+    transfer-completed-topic: bankflow.transfer.completed.v1
+management:
+  info:
+    env:
+      enabled: true
+  endpoints:
+    web:
+      exposure:
+        include: health,info
+info:
+  app:
+    name: ${spring.application.name}
+    description: Consumes completed transfer events and handles notifications
+    version: 0.0.1-SNAPSHOT
+  kafka:
+    topic: bankflow.transfer.completed.v1
+    consumer-group: bankflow-notification-service

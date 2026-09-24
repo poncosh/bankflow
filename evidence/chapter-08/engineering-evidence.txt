@@ -1,0 +1,22 @@
+Named resilience components
+- Circuit breaker and retry: accountService
+- Gateway rate limiter: transferApi
+
+Fallback safety
+- Account dependency fallback throws AccountServiceUnavailableException.
+- No fallback creates a Transfer or returns a fabricated financial success.
+
+Externalized configuration
+- Timeouts use ACCOUNT_CONNECT_TIMEOUT, ACCOUNT_READ_TIMEOUT, and
+  ACCOUNT_CLIENT_DELAY_MS environment placeholders.
+- Circuit breaker, retry, and rate limiter policies are in application.yml.
+
+Bounded metrics labels
+- No custom MeterRegistry tags or request/account/client identifiers are created.
+- Resilience instances use the two bounded names accountService and transferApi.
+
+Sanitization and secret scan
+- All test account numbers and client references are synthetic.
+- Evidence omits local paths, host addresses, correlation IDs, and credentials.
+- Source scan found no hard-coded password, secret, API key, or token assignment.
+- Git history could not be audited because the supplied directory has no .git metadata.

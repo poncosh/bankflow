@@ -1,0 +1,18 @@
+{
+  "status": "UP",
+  "discovery": {
+    "status": "UP",
+    "services": [
+      "account-service",
+      "transfer-service",
+      "api-gateway"
+    ],
+    "applications": {
+      "API-GATEWAY": 1,
+      "ACCOUNT-SERVICE": 2,
+      "TRANSFER-SERVICE": 2
+    }
+  },
+  "readiness": "UP",
+  "liveness": "UP"
+}

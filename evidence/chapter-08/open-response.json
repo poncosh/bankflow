@@ -1,0 +1,7 @@
+{
+  "status": 503,
+  "code": "ACCOUNT_SERVICE_UNAVAILABLE",
+  "message": "Account validation is temporarily unavailable",
+  "path": "/api/v1/transfers",
+  "fieldErrors": []
+}

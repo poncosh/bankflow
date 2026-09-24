@@ -1,0 +1,5 @@
+{
+  "status": 429,
+  "code": "RATE_LIMIT_EXCEEDED",
+  "message": "Transfer request rate limit exceeded"
+}

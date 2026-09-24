@@ -1,0 +1,62 @@
+# Maven / Java build output
+**/target/
+**/out/
+*.class
+dependency-reduced-pom.xml
+pom.xml.versionsBackup
+release.properties
+.mvn/timing.properties
+*-effective-pom.xml
+service-registry-effective-pom.txt
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.ipr
+*.iws
+.run/
+
+# Visual Studio Code
+.vscode/
+
+# Eclipse / Spring Tool Suite
+.classpath
+.project
+.settings/
+.factorypath
+.apt_generated/
+.springBeans
+.sts4-cache/
+
+# Logs, process files, and JVM crash dumps
+*.log
+logs/
+*.pid
+*.pid.lock
+hs_err_pid*
+replay_pid*
+
+# Local environment overrides (keep the documented example)
+.env
+.env.*
+!.env.example
+
+# Operating-system metadata
+.DS_Store
+._*
+Thumbs.db
+Desktop.ini
+
+# Editor backup and temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Test and coverage output outside Maven target directories
+.coverage
+coverage/
+test-results/
+
+# Keep evidence/, postman/, scripts/, and Maven wrapper files versioned.

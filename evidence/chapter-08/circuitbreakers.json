@@ -1,0 +1,27 @@
+{
+  "name": "accountService",
+  "failureRateThreshold": "50.0%",
+  "minimumNumberOfCalls": 5,
+  "snapshots": [
+    {
+      "phase": "threshold-reached",
+      "state": "OPEN",
+      "bufferedCalls": 5,
+      "failedCalls": 5,
+      "failureRate": "100.0%",
+      "notPermittedCalls": 1
+    },
+    {
+      "phase": "after-wait-duration",
+      "state": "HALF_OPEN",
+      "bufferedCalls": 0,
+      "failedCalls": 0
+    },
+    {
+      "phase": "after-three-successful-half-open-probes",
+      "state": "CLOSED",
+      "bufferedCalls": 1,
+      "failedCalls": 0
+    }
+  ]
+}

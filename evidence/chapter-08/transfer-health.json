@@ -1,0 +1,6 @@
+{
+  "status": "UP",
+  "circuitBreaker": "accountService",
+  "readiness": "UP",
+  "liveness": "UP"
+}

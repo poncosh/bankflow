@@ -1,0 +1,8 @@
+Scenario: Request while accountService circuit breaker is OPEN
+HTTP status: 503
+Elapsed: 624 ms (includes configured retry backoff)
+Dependency calls before OPEN request: 5
+Dependency calls after OPEN request: 5
+
+No remote lookup occurred while OPEN. For comparison, the timeout request took
+2428 ms. The remaining 624 ms is local retry backoff; it is not downstream I/O.

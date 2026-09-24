@@ -1,0 +1,10 @@
+Scenario: Healthy Account route through API Gateway
+Request: GET http://localhost:8080/api/accounts
+HTTP status: 200
+
+Synthetic response summary:
+- 100000008001, SAVINGS, IDR, ACTIVE, balance 1000000.00
+- 200000008001, SAVINGS, IDR, ACTIVE, balance 250000.00
+
+The same synthetic records were created on both running Account Service instances so
+Eureka load balancing could select either instance deterministically.

@@ -116,3 +116,7 @@ Evidence pengujian healthy route, timeout, circuit breaker, retry, recovery, rat
 limiter, health, dan hasil Maven tersedia di [`evidence/chapter-08`](evidence/chapter-08).
 Checklist akhir tersedia di
 [`evidence/chapter-08/acceptance-checklist.md`](evidence/chapter-08/acceptance-checklist.md).
+
+## Attribution
+
+Pengembangan dan dokumentasi proyek ini dibantu oleh OpenAI Codex.
